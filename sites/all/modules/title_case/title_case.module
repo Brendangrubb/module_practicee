@@ -34,10 +34,10 @@
         return $form;
     }
 
-    function element_validate_string($element) {
-        $temp = $element['#value'];
+    function element_validate_string($stella) {
+        $temp = $stella['#value'];
         if ((float) $temp == TRUE) {
-            form_error($element, t("sorry sucka, it\'s words or nothing!"));
+            form_error($stella, t("sorry sucka, it's words or nothing!"));
         }
     }
 
