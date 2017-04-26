@@ -23,6 +23,8 @@
             '#title' => t('Titleify:'),
             '#type' => 'textfield',
             '#description' => t('Enter some text you would like to see CAPITALIZED'),
+            '#element_validate' => array('element_validate_string'),
+            '#required' => TRUE,
         ];
 
         $form['submit'] = [
@@ -30,6 +32,13 @@
             '#value' => 'Format',
         ];
         return $form;
+    }
+
+    function element_validate_string($element) {
+        $temp = $element['#value'];
+        if ((float) $temp == TRUE) {
+            form_error($element, t("sorry sucka, it\'s words or nothing!"));
+        }
     }
 
     function title_case_form_submit($form, &$form_state){
